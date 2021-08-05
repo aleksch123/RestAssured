@@ -1,4 +1,4 @@
-package config;
+package com.example.mint.config;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -6,9 +6,9 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
-import static constants.Constants.RunVariable.path;
-import static constants.Constants.RunVariable.server;
-import static constants.Constants.Servers.*;
+import static com.example.mint.constants.Constants.RunVariable.path;
+import static com.example.mint.constants.Constants.RunVariable.server;
+import static com.example.mint.constants.Constants.Servers.*;
 
 public class TestBase {
 

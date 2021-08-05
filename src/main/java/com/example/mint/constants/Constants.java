@@ -1,4 +1,4 @@
-package constants;
+package com.example.mint.constants;
 
 public class Constants {
     public static class RunVariable {

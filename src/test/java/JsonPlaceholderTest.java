@@ -1,7 +1,7 @@
-import config.TestBase;
+import com.example.mint.config.TestBase;
 import org.testng.annotations.Test;
 
-import static constants.Constants.Actions.*;
+import static com.example.mint.constants.Constants.Actions.*;
 import static io.restassured.RestAssured.given;
 
 public class JsonPlaceholderTest extends TestBase {

@@ -1,4 +1,4 @@
-import config.TestBase;
+import com.example.mint.config.TestBase;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -6,12 +6,13 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.Map;
 
-import static constants.Constants.Actions.SWAPI_GET_PEOPLE;
-import static constants.Constants.Path.SWAPI_PATH;
+import static com.example.mint.constants.Constants.Actions.SWAPI_GET_PEOPLE;
+import static com.example.mint.constants.Constants.Path.SWAPI_PATH;
 import static io.restassured.RestAssured.given;
 import static io.restassured.matcher.RestAssuredMatchers.matchesXsdInClasspath;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class Test1 extends TestBase {
   @Test
@@ -129,6 +130,18 @@ public class Test1 extends TestBase {
         List films = response.path("results.findAll {it.films}.name");
 
         System.out.println("Films --> "+films);
+
+
+    }
+    @Test
+    public void validateImageContent(){
+
+      given().log().uri()
+              .when().get("https://httpbin.org/image/png")
+              .then()
+              .statusCode(200)
+              .header("content-type","image/png")
+              .header("content-length", "8090");
 
 
     }
