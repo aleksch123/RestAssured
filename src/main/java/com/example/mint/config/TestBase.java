@@ -12,41 +12,25 @@ import static com.example.mint.constants.Constants.Servers.*;
 
 public class TestBase {
 
-   protected RequestSpecification requestSpecificationJson = new RequestSpecBuilder()
-            .addHeader("Content-Type","application/json")
-            .addCookie("testCookieJson")
-           .setBaseUri(JSONPLACEHOLDER_URL)
+
+
+    protected RequestSpecification requestSpecificationXMLH = new RequestSpecBuilder()
+            .addHeader("X-Requested-With", "XMLHttpRequest")
+            .addFormParam("v","2.5")
+            .setBaseUri(ILEDECASINO_URL)
             .build();
 
-    protected RequestSpecification requestSpecificationXml = new RequestSpecBuilder()
-            .addHeader("Content-Type","application/xml")
-            .addCookie("testCookieXml")
-            .setBaseUri(REQUSTBIN_URL)
-            .build();
-
-    protected ResponseSpecification responseSpecificationForGet = new ResponseSpecBuilder()
-            .expectStatusCode(200)
-            .build();
-
-    protected ResponseSpecification responseSpecificationForPost = new ResponseSpecBuilder()
-            .expectStatusCode(201)
-            .build();
-
-    protected RequestSpecification requestSpecificationForSwapiTests = new  RequestSpecBuilder()
-            .setBaseUri(SWAPI_URL)
-            .build();
 
 @BeforeClass
     public void setUp(){
         RestAssured.baseURI= server;
         RestAssured.basePath= path;
 
-     RequestSpecification requestSpecificationJson = new RequestSpecBuilder()
-            .addHeader("Content-Type","application/json")
-            .addCookie("testCookieJson")
-            .build();
 
-        RestAssured.requestSpecification = requestSpecificationJson;
+
+
+
+        //RestAssured.requestSpecification = requestSpecificationXMLH;
     }
 
 }
